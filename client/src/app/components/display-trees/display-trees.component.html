@@ -1,0 +1,14 @@
+<h1>Árboles de Chile</h1>
+
+@for (tree of trees; track tree.arbol_id) {
+    <h2>
+        {{ tree.nombre_arbol }}
+    </h2>
+    @if (treePhotosMap.has(tree.arbol_id)) {
+        @for (photo of treePhotosMap.get(tree.arbol_id); track photo.foto_id) {
+            <img [src]="photo.url_foto" [alt]="tree.nombre_arbol" width="auto" height="auto">
+        }
+    }
+  } @empty {
+    Empty list of trees
+  }
