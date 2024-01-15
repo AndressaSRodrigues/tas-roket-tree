@@ -1,6 +1,14 @@
-@if (treeDetails) {
-    <h2 class="text-3xl text-teal-700 font-bold mb-4">{{treeName}}</h2>
+<div class="my-14 mx-60">
+ @if (treeDetails) {
+    <h2 class="text-3xl text-teal-700 font-bold mb-8">{{treeName}}</h2>
+    @for (photo of treePhotosMap.get(treeId); track photo.foto_id) {
+        <img [src]="photo.url_foto" [alt]="treeName" width="auto" height="auto" class="w-96 rounded-md">
+    } @empty {
+        <span>No hay ninguna foto de ese árbol.</span>
+    }
 } @else {
     <p>No pudimos encontrar el árbol que estás buscando.</p>
-}
+}   
+</div>
+
 

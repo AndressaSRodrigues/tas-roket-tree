@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { TreesInfoService } from '../../services/trees-info.service';
 import { PhotosService } from '../../services/photos.service';
 import { Tree } from '../../interfaces/trees.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-display-trees',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './display-trees.component.html',
 })
 
