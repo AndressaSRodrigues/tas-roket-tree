@@ -1,14 +1,16 @@
-<h1>Árboles de Chile</h1>
-
-@for (tree of trees; track tree.arbol_id) {
-    <h2>
-        {{ tree.nombre_arbol }}
-    </h2>
+<section class="flex flex-row flex-wrap justify-start gap-4 my-20 mx-60">
+    <h1 class="w-full text-3xl text-teal-700 font-bold mb-4">Árboles de Chile</h1>
+ @for (tree of trees; track tree.arbol_id) {
+    <div class="w-60 flex flex-col gap-4 bg-neutral-200 p-4 rounded-md">
     @if (treePhotosMap.has(tree.arbol_id)) {
         @for (photo of treePhotosMap.get(tree.arbol_id); track photo.foto_id) {
-            <img [src]="photo.url_foto" [alt]="tree.nombre_arbol" width="auto" height="auto">
+            <img [src]="photo.url_foto" [alt]="tree.nombre_arbol" width="auto" height="auto" class="h-72 rounded-md">
         }
-    }
+    }  
+        <h2 class="font-bold text-lg">{{ tree.nombre_arbol }}</h2>
+    </div>
   } @empty {
     Empty list of trees
-  }
+  }   
+</section>
+

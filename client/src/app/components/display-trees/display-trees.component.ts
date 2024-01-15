@@ -13,7 +13,6 @@ interface Tree {
   standalone: true,
   imports: [],
   templateUrl: './display-trees.component.html',
-  styleUrl: './display-trees.component.scss'
 })
 
 export class DisplayTreesComponent implements OnInit {
@@ -27,27 +26,29 @@ export class DisplayTreesComponent implements OnInit {
 
   fetchTrees() {
     this.http.get('http://localhost:3000/')
-      .subscribe(
-        (trees: any) => {
+      .subscribe({
+        next: (trees: any) => {
           this.trees = trees;
           this.fetchPhotosForTrees();
         },
-        (error) => {
+        error: (error) => {
           console.error('Error fetching trees:', error);
         }
+      }
       );
   }
-  
+
   fetchPhotosForTrees() {
     this.trees.forEach(tree => {
       this.http.get(`http://localhost:3000/photos/${tree.arbol_id}`)
-        .subscribe(
-          (photos: any) => {
-            this.treePhotosMap.set(tree.arbol_id, photos);
+        .subscribe({
+          next: (photos: any) => {
+            this.treePhotosMap.set(tree.arbol_id, photos.slice(0, 1));
           },
-          (error) => {
+          error: (error) => {
             console.error(`Error fetching photos for tree ${tree.arbol_id}:`, error);
           }
+        }
         );
     });
   }
