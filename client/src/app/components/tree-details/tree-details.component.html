@@ -1,14 +1,18 @@
-<div class="my-14 mx-60">
- @if (treeDetails) {
-    <h2 class="text-3xl text-teal-700 font-bold mb-8">{{treeName}}</h2>
-    @for (photo of treePhotosMap.get(treeId); track photo.foto_id) {
-        <img [src]="photo.url_foto" [alt]="treeName" width="auto" height="auto" class="w-96 rounded-md">
-    } @empty {
-        <span>No hay ninguna foto de ese árbol.</span>
-    }
-} @else {
-    <p>No pudimos encontrar el árbol que estás buscando.</p>
-}   
-</div>
-
-
+<section class="flex flex-row justify-center gap-8 my-14">
+    <div>
+    @if (treeDetails) {
+        <h2 class="text-3xl text-teal-700 font-bold mb-8">{{treeName}}</h2>
+        @for (photo of treePhotosMap.get(treeId); track photo.foto_id) {
+            <img [src]="photo.url_foto" [alt]="treeName" width="auto" height="auto" class="w-96 rounded-md">
+        } @empty {
+            <span>No hay ninguna foto de ese árbol.</span>
+        }
+    } @else {
+        <p>No pudimos encontrar el árbol que estás buscando.</p>
+    }   
+    </div>
+    <div>
+        <h3 class="text-2xl text-teal-700 font-bold mb-8">Ubicación del árbol</h3>
+        <app-tree-location [treeId]="treeId"></app-tree-location>
+    </div>
+</section>
