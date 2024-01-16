@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { TreesInfoService } from '../../services/trees-info.service';
 import { Tree } from '../../interfaces/trees.interface';
 import { PhotosService } from '../../services/photos.service';
+import { TreeLocationComponent } from '../tree-location/tree-location.component';
 
 @Component({
   selector: 'app-tree-details',
   standalone: true,
-  imports: [],
+  imports: [TreeLocationComponent],
   templateUrl: './tree-details.component.html',
 })
 

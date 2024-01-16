@@ -5,5 +5,5 @@ import { TreeDetailsComponent } from './components/tree-details/tree-details.com
 export const routes: Routes = [
     { path: '', redirectTo: '/trees', pathMatch: 'full' },
     { path: 'trees', component: DisplayTreesComponent },
-    { path: 'tree/:id', component: TreeDetailsComponent }
+    { path: 'tree/:id', component: TreeDetailsComponent },
 ];

@@ -1,0 +1,5 @@
+<div class="bg-neutral-200 rounded-md p-2">
+    <google-map [center]="center" [zoom]="zoom">
+        <map-marker [position]="center" (mapClick)="move($event)"></map-marker>
+    </google-map>
+</div>
